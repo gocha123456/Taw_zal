@@ -73,21 +73,216 @@ GET localhost:8080/API/classes?Finals=true
 [
     {
         "id": 1,
-        "name": "Metodologie obiektowe",
+        "nazwa": "Metodologie obiektowe",
         "ECTS": 2,
-        "room_no": 216,
-        "exam": true
+        "Sala": 216,
+        "Finals": true
     },
     {
         "id": 6,
-        "name": "Technologie komponentowe i sieciowe",
+        "nazwa": "Technologie komponentowe i sieciowe",
         "ECTS": 2,
-        "room_no": 208,
-        "exam": true
+        "Sala": 208,
+        "Finals": true
     }
 ]
 ```
 
 Odpowiedź serwera:<br>
 OK 200
+
+4. Pobranie przedmiotów, które odbywają się w sali 216
+
+
+GET localhost:8080/API/classes?room_no=216
+
+
+Odpowiedź serwera:
+
+
+200 OK
+Body:
+
+```JSON
+[
+    {
+        "id": 1,
+        "nazwa": "Metodologie obiektowe",
+        "ECTS": 2,
+        "Sala": 216,
+        "Finals": true
+    },
+    {
+        "id": 2,
+        "nazwa": "Testowanie oprogramowania",
+        "ECTS": 1,
+        "Sala": 216,
+        "Finals": false
+    },
+    {
+        "id": 4,
+        "nazwa": "Zarządzanie projektem informatycznym",
+        "ECTS": 2,
+        "Sala": 216,
+        "Finals": false
+    }
+]
+```
+
+5. Pobranie przedmiotów które nie mają egzaminu i odbywają się w sali 208
+
+
+GET localhost:8080/API/classes?exam=false&room_no=208
+
+
+Odpowiedź serwera:
+
+
+200 OK
+Body:
+
+```JSON
+[
+    {
+        "id": 3,
+        "nazwa": "Technologie i aplikacje webowe",
+        "ECTS": 3,
+        "Sala": 208,
+        "Finals": false
+    },
+    {
+        "id": 5,
+        "nazwa": "Zaawansowane technologie bazodanowe",
+        "ECTS": 3,
+        "Sala": 208,
+        "Finals": false
+    }
+]
+```
+6. Pobranie przedmiotu o identyfikatorze 3
+
+
+GET localhost:8080/API/classes/3
+
+
+Odpowiedź serwera:
+
+
+200 OK
+Body:
+
+
+```JSON
+{
+    "id": 3,
+    "nazwa": "Technologie i aplikacje webowe",
+    "ECTS": 3,
+    "Sala": 208,
+    "Finals": false
+}
+```
+
+7. Pobranie przedmiotu o identyfikatorze 15
+
+
+GET localhost:8080/API/classes/15
+
+
+Odpowiedź serwera:
+
+
+404 Not Found
+Body: brak
+
+
+8. Usunięcie przedmiotu o identyfikatorze 2
+
+
+DELETE localhost:8080/API/classes/2
+
+
+Odpowiedź serwera:
+
+
+200 OK
+Body: brak
+
+
+9. Pobranie wszystkich przedmiotów
+
+
+GET localhost:8080/API/classes
+
+
+Odpowiedź serwera:
+
+
+200 OK
+Body:
+
+
+```JSON
+[
+    {
+        "id": 1,
+        "nazwa": "Metodologie obiektowe",
+        "ECTS": 2,
+        "Sala": 216,
+        "Finals": true
+    },
+    {
+        "id": 3,
+        "nazwa": "Technologie i aplikacje webowe",
+        "ECTS": 3,
+        "Sala": 208,
+        "Finals": false
+    },
+    {
+        "id": 4,
+        "nazwa": "Zarządzanie projektem informatycznym",
+        "ECTS": 2,
+        "Sala": 216,
+        "Finals": false
+    },
+    {
+        "id": 5,
+        "nazwa": "Zaawansowane technologie bazodanowe",
+        "ECTS": 3,
+        "Sala": 208,
+        "Finals": false
+    },
+    {
+        "id": 6,
+        "nazwa": "Technologie komponentowe i sieciowe",
+        "ECTS": 2,
+        "Sala": 208,
+        "Finals": true
+    }
+]
+```
+
+10. Usunięcie wszystkich przedmiotów
+
+
+DELETE localhost:8080/API/classes
+
+
+Odpowiedź serwera:
+
+
+200 OK
+Body: brak
+
+
+11. Pobranie wszystkich przedmiotów
+
+
+GET localhost:8080/API/classes
+
+
+Odpowiedź serwera:
+
+
+200 OK
+Body: brak
 
