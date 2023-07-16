@@ -94,7 +94,7 @@ OK 200
 4. Pobranie przedmiotów, które odbywają się w sali 216
 
 
-GET localhost:8080/API/classes?room_no=216
+GET localhost:8080/API/classes?calsroom=216
 
 
 Odpowiedź serwera:
@@ -132,7 +132,7 @@ Body:
 5. Pobranie przedmiotów które nie mają egzaminu i odbywają się w sali 208
 
 
-GET localhost:8080/API/classes?exam=false&room_no=208
+GET localhost:8080/API/classes?finals=false&calsroom=208
 
 
 Odpowiedź serwera:
